@@ -1,12 +1,14 @@
 const PORT = process.env.PORT || 8080;
 
+const dotenv = require('dotenv')
+dotenv.config();
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
 const cors = require('cors');
 
-mongoose.connect('mongodb+srv://user:user123@cluster1.gle5k.mongodb.net/DriverDB', () => console.log('connected to DB'));
+mongoose.connect(process.env.DB_URI, () => console.log('connected to DB'));
 
 // MIDDLEWARES
 app.use(cors());

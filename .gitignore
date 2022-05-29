@@ -9,4 +9,5 @@ clients/hospital-display/node_modules
 
 #server
 servers/server/node_modules
+servers/server/.env
 servers/socket-test-ws/node_modules
