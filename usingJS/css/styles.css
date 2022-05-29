@@ -1,0 +1,17 @@
+nav{
+    background-color: rgb(0, 162, 255) !important;
+}
+
+.uid{
+    height: 37px;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.my-btn{
+    background-color: rgb(0, 162, 255);
+    color: white;
+}
+.my-btn:hover{
+    color: white;
+}
