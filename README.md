@@ -13,10 +13,5 @@ To install the webapp, run the following commands:-
     - npm start
     - run clients on localhost
 
-
-Upcoming features:-
-- Auth
-- Clean UI
-- Planning to set the notifications on clientside too.
     
 ❤❤
