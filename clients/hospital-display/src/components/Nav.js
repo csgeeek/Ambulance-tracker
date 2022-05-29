@@ -1,18 +1,15 @@
-
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Nav() {
+export default function Nav({ onsendID }) {
+  const navigation = [
+    { name: 'Dashboard', href: '#', current: true },
+    { name: 'View List', href: '#', current: false, onClick: onsendID },
+  ] 
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -40,7 +37,7 @@ export default function Nav() {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <button
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -48,9 +45,10 @@ export default function Nav() {
                           'px-3 py-2 rounded-md text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
+                        onClick={item.onClick}
                       >
                         {item.name}
-                      </a>
+                      </button>
                     ))}
                   </div>
                 </div>

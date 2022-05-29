@@ -1,10 +1,8 @@
-import './App.css';
 import { useState } from 'react';
 import { io } from 'socket.io-client';
 import Coords from './components/Coords';
 import Nav from './components/Nav';
 
-// const socket = io('https://socket-test-ws.herokuapp.com/');
 const socket = io('http://localhost:5000');
 
 function App() {
@@ -42,9 +40,10 @@ function App() {
     console.log('ID sent');
     socket.emit('send-id', socket.id);
   }
+
   return (
     <div>
-      <Nav />
+      <Nav onsendID={sendID} />
       <Coords coords={coords} />
     </div>
   );
