@@ -10,7 +10,7 @@ const SignupForm = () => {
 
 	async function registerUser(event) {
 		event.preventDefault();
-		const response = await fetch('https://auth-server-ws.herokuapp.com/api/auth/signup', {
+		const response = await fetch('http://localhost:8080/api/auth/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -93,40 +93,6 @@ const SignupForm = () => {
 				</div>
 			</div>
 		</div>
-
-
-
-
-		// <div>
-		// 	<h1>Register</h1>
-		// 	<form onSubmit={registerUser}>
-		// 		<input
-		// 			value={name}
-		// 			onChange={(e) => setName(e.target.value)}
-		// 			type="text"
-		// 			placeholder="Name"
-		// 		/>
-		// 		<br />
-
-		// 		<input
-		// 			value={password}
-		// 			onChange={(e) => setPassword(e.target.value)}
-		// 			type="password"
-		// 			placeholder="Password"
-		// 		/>
-		// 		<br />
-
-        //         <input
-		// 			value={ambNumber}
-		// 			onChange={(e) => setAmbNumber(e.target.value)}
-		// 			type="text"
-		// 			placeholder="Ambulance Number"
-		// 		/>
-        //         <br />
-
-		// 		<input type="submit" value="Register" />
-		// 	</form>
-		// </div>
 	)
 }
 

@@ -30,6 +30,7 @@
   overflow-x: hidden;
 }
 .amb{
+  height: auto;
   animation: ambulance 5.5s infinite linear;
 }
 

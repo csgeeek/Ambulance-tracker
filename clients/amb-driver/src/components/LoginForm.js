@@ -8,7 +8,7 @@ const LoginForm = () => {
 	async function loginUser(event) {
 		event.preventDefault();
 
-		const response = await fetch('http://auth-server-ws.herokuapp.com/api/auth/login', {
+		const response = await fetch('http://localhost:8080/api/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const LoginForm = () => {
 		if (data.driver) {
 			localStorage.setItem('token', data.driver)
 			alert('Login successful')
-			window.location.href = '/title';
+			window.location.href = '/driver';
 		} else {
 			alert(`Please check your ${name} and ${password}`)
 		}
@@ -70,28 +70,6 @@ const LoginForm = () => {
 				</div>
 			</div>
 		</div>
-
-		
-		// <div>
-		// 	<h1 className='text-4xl'>Login</h1>
-		// 	<form onSubmit={loginUser}>
-		// 		<input
-		// 			value={name}
-		// 			onChange={(e) => setName(e.target.value)}
-		// 			type="text"
-		// 			placeholder="Name"
-		// 		/>
-		// 		<br />
-		// 		<input
-		// 			value={password}
-		// 			onChange={(e) => setPassword(e.target.value)}
-		// 			type="password"
-		// 			placeholder="Password"
-		// 		/>
-		// 		<br />
-		// 		<input type="submit" value="Login" />
-		// 	</form>
-		// </div>
 	)
 }
 

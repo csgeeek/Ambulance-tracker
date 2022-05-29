@@ -1,6 +1,6 @@
 import './dist/output.css';
 import './App.css';
-import Title from './components/Title';
+import Driver from './components/Driver';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from './components/Home';
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
-          <Route path="/title" element={<Title />} />
+          <Route path="/driver" element={<Driver />} />
         </Routes>
       </div>
     </Router>

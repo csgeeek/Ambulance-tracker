@@ -12,10 +12,9 @@ const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 
 const ID = nanoid();
 
-const socket = io('https://socket-test-ws.herokuapp.com/');
-// const socket = io('http://localhost:5000');
+const socket = io('http://localhost:5000');
 
-const Title = () => {
+const Driver = () => {
   
   const navigate = useNavigate();
 
@@ -25,12 +24,8 @@ const Title = () => {
 
   
   socket.emit('send-coords', JSON.stringify({id: ID, name: name, lat: latitude, lng: longitude}));
-  // socket.on("connect_error", (err) => {
-  //   console.log(`connect_error due to ${err.message}`);
-  // });
-
   const populateName = async () => {
-		const req = await fetch('https://auth-server-ws.herokuapp.com/api/auth/name', {
+		const req = await fetch('http://localhost:8080/api/auth/name', {
 			headers: {
 				'x-access-token': localStorage.getItem('token'),
 			},
@@ -68,13 +63,18 @@ const Title = () => {
   }
   return (
     <>
-      <div className='App-header'>
-        <h1>Ambulance</h1>
-        <p>{latitude}, {longitude}</p>
-        <button className='btn' onClick={handleLogout}>Logout</button>
+      <div className='mt-5'>
+        <h1 className='text-4xl font-extrabold text-center'>Hello {name}</h1>
+        {
+          latitude === null || longitude === null? <p className='text-center mt-2'>Can not access location</p>: <p className='text-center mt-2'>Your location is being tracked. Latitude: {latitude} Longitude: {longitude}</p>
+        }
+        <div className='amb'><img src="../icons/working.gif" alt="gif" /></div>
+        <div className="mx-auto w-2">
+          <button className='bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded' onClick={handleLogout}>Logout</button>
+        </div>
       </div>
     </>
   )
 }
 
-export default Title;
+export default Driver;
