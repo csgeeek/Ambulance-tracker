@@ -1,5 +1,9 @@
 import React from 'react'
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
+
 const Coord = ({ data }) => {
 
   const getDistanceFromLatLonInKm = (lat1,lon1,lat2,lon2) => {
@@ -16,11 +20,12 @@ const Coord = ({ data }) => {
     return deg * (Math.PI/180);
   }
 
+  // coords hardcoded for now
   let tlat = 17.761146480492354, tlng = 83.31641637015535;
 
   return (
     <>
-      <div className={`each-coord ${data.id} ${getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) <= 4&& 'in-range' }`}>
+      <div className={classNames(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) > 4? 'border-green-900': 'border-red-900', 'border-l-4 p-4 m-2 bg-gray-200' )}>
         <h3>Id:- { data.id }</h3>
         <h4>Name:- { data.name }</h4>
         <p>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) }km</p>
