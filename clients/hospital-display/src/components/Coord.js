@@ -25,7 +25,7 @@ const Coord = ({ data }) => {
 
   return (
     <>
-      <div className={classNames(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) > 4? 'border-green-900': 'border-red-900', 'border-l-4 p-4 m-2 bg-gray-200' )}>
+      <div className={classNames(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) > 3? 'border-green-800': 'border-red-900', 'border-l-4 p-4 m-2 bg-gray-200' )}>
         <h3>Id:- { data.id }</h3>
         <h4>Name:- { data.name }</h4>
         <p>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) }km</p>
