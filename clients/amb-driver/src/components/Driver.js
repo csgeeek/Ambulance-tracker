@@ -19,11 +19,13 @@ const Driver = () => {
   const navigate = useNavigate();
 
   const [name, setName] = useState('');
-  const latitude = useGeolocation().lat;
-  const longitude = useGeolocation().lng;
-
+  const coord = useGeolocation().coord;
+  const loaded = coord.loaded;
+  const latitude = coord.lat;
+  const longitude = coord.lng;
+  console.log(latitude, longitude);
   
-  socket.emit('send-coords', JSON.stringify({id: ID, name: name, lat: latitude, lng: longitude}));
+  socket.emit('send-coords', JSON.stringify({id: ID, name: name, loaded: loaded, lat: latitude, lng: longitude}));
   const populateName = async () => {
 		const req = await fetch('http://localhost:8080/api/auth/name', {
 			headers: {
@@ -66,10 +68,10 @@ const Driver = () => {
       <div className='mt-5'>
         <h1 className='text-4xl font-extrabold text-center'>Hello {name}</h1>
         {
-          latitude === null || longitude === null? <p className='text-center mt-2'>Can not access location</p>: <p className='text-center mt-2'>Your location is being tracked. Latitude: {latitude} Longitude: {longitude}</p>
+          latitude === null || longitude === null? <p className='text-center mt-2'>Cannot access location</p>: <p className='text-center mt-2'>Your location is being tracked. Latitude: {latitude} Longitude: {longitude}</p>
         }
         <div className='amb'><img src="../icons/working.gif" alt="gif" /></div>
-        <div className="mx-auto w-2">
+        <div className="flex justify-center">
           <button className='bg-black hover:bg-slate-800 text-white font-bold py-2 px-4 rounded' onClick={handleLogout}>Logout</button>
         </div>
       </div>

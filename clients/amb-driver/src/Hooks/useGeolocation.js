@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 const useGeolocation = () => {
 
   const [location, setLocation] = useState({
-    loaded: false,
-    lat: null,
-    lng: null
+    coord:{    
+      loaded: false,
+      lat: null,
+      lng: null
+    }
   });
 
 // learn more about useEffect
@@ -13,9 +15,11 @@ const useGeolocation = () => {
     const success = (pos) => {
       const crd = pos.coords;
       setLocation({
-        loaded: true,
-        lat: crd.latitude,
-        lng: crd.longitude
+        coord:{
+          loaded: true,
+          lat: crd.latitude,
+          lng: crd.longitude
+        }
       });
     };
 
@@ -25,7 +29,7 @@ const useGeolocation = () => {
 
     const options = {
       enableHighAccuracy: true,
-      timeout: 1000
+      timeout: 2000,
     };
 
     const id = navigator.geolocation.watchPosition(success, error, options);
