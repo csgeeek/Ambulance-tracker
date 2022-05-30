@@ -1,4 +1,4 @@
-# eAmbulance-notifier🚑
+# Ambulance-tracker🚑
 
 This webapp notifies hospital when an ambulance is within 3km range of a hospital. This will be very useful at times of emergency cases. This works by tracking ambulance location(coordinates) in realtime. The location stats will also be updated in realtime on hospital's display board.
 
