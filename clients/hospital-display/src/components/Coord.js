@@ -5,7 +5,6 @@ function classNames(...classes) {
 }
 
 const Coord = ({ data }) => {
-  console.log(data);
   const getDistanceFromLatLonInKm = (lat1,lon1,lat2,lon2) => {
     if(lat2 === null || lon2 === null){
       return -1;
