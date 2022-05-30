@@ -62,7 +62,7 @@ export default function Nav({ onsendID }) {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="button"
+                  as="button" // fixed button
                   href={item.href}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
