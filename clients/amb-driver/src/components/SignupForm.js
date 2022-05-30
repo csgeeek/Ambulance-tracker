@@ -10,7 +10,7 @@ const SignupForm = () => {
 
 	async function registerUser(event) {
 		event.preventDefault();
-		const response = await fetch('http://localhost:8080/api/auth/signup', {
+		const response = await fetch('https://auth-server-ws.herokuapp.com/api/auth/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

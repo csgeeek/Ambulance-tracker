@@ -12,7 +12,7 @@ const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVW
 
 const ID = nanoid();
 
-const socket = io('http://localhost:5000');
+const socket = io('https://socket-test-ws.herokuapp.com/');
 
 const Driver = () => {
   
@@ -25,7 +25,7 @@ const Driver = () => {
   
   socket.emit('send-coords', JSON.stringify({id: ID, name: name, lat: latitude, lng: longitude}));
   const populateName = async () => {
-		const req = await fetch('http://localhost:8080/api/auth/name', {
+		const req = await fetch('https://auth-server-ws.herokuapp.com/api/auth/name', {
 			headers: {
 				'x-access-token': localStorage.getItem('token'),
 			},

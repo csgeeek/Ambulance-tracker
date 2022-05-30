@@ -8,7 +8,7 @@ const LoginForm = () => {
 	async function loginUser(event) {
 		event.preventDefault();
 
-		const response = await fetch('http://localhost:8080/api/auth/login', {
+		const response = await fetch('https://auth-server-ws.herokuapp.com/api/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
