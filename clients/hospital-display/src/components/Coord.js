@@ -5,8 +5,11 @@ function classNames(...classes) {
 }
 
 const Coord = ({ data }) => {
-
+  console.log(data);
   const getDistanceFromLatLonInKm = (lat1,lon1,lat2,lon2) => {
+    if(lat2 === null || lon2 === null){
+      return -1;
+    }
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2-lat1);  // deg2rad below
     var dLon = deg2rad(lon2-lon1); 
@@ -28,7 +31,9 @@ const Coord = ({ data }) => {
       <div className={classNames(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) > 3? 'border-green-800': 'border-red-900', 'border-l-4 p-4 m-2 bg-gray-200' )}>
         <h3>Id:- { data.id }</h3>
         <h4>Name:- { data.name }</h4>
-        <p>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) }km</p>
+        {
+          data.loaded?<p>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) } km</p>: <p>Location not loaded</p>
+        }
       </div>
     </>
   )
