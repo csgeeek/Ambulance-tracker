@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LoginForm = () => {
 	const [name, setName] = useState('')
 	const [password, setPassword] = useState('')
-
+	const [desc, setDesc] = useState('')
 	async function loginUser(event) {
 		event.preventDefault();
 
@@ -16,6 +16,7 @@ const LoginForm = () => {
 			body: JSON.stringify({
 				name,
 				password,
+				desc
 			}),
 		})
 
@@ -60,6 +61,15 @@ const LoginForm = () => {
 								id="password" name="password" type="password" autocomplete="current-password" required class=""
 								value={password} onChange={(e) => setPassword(e.target.value)}
 								/>
+							</div>
+						</div>
+
+						<div>
+							<label for="desc" class="block text-sm font-medium text-gray-700">Description</label>
+							<div class="mt-1">
+								<input
+								 id="desc" name="desc" type="text" required class="" value={desc} onChange={(e) => setDesc(e.target.value)}
+								 />
 							</div>
 						</div>
 

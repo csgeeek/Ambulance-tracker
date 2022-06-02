@@ -28,10 +28,11 @@ const Coord = ({ data }) => {
   return (
     <>
       <div className={classNames(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) > 3? 'border-green-800': 'border-red-900', 'border-l-4 p-4 m-2 bg-gray-200' )}>
-        <h3>Id:- { data.id }</h3>
-        <h4>Name:- { data.name }</h4>
+        <h3 className='font-semibold'>Ambulance Number : <span className='font-normal'> { data.ambNumber } </span></h3>
+        <h4 className='font-semibold'>Name : <span className='font-normal'> { data.name } </span></h4>
+        <h4 className='font-semibold'>Description : <span className='font-normal'> { data.desc } </span></h4>
         {
-          data.loaded?<p>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) } km</p>: <p>Location not loaded</p>
+          data.loaded?<h4 className='font-semibold'>Distance : <span className='font-normal'>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) } km</span> </h4>: <p>Location not loaded</p>
         }
       </div>
     </>
