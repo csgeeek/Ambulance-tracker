@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 import Coords from './components/Coords';
 import Nav from './components/Nav';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://socket-test-ws.herokuapp.com/');
 
 function App() {
 
