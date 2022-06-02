@@ -20,14 +20,15 @@ router.get('/name', async (req, res) => {
 	try {
 		const decoded = jwt.verify(token, 'secret')
 		const name = decoded.name
+
 		const driver = await Driver.findOne({ name: name })
 
-		return res.json({ status: 'ok', name: driver.name })
+		return res.json({ status: 'ok', name: driver.name, ambNumber: decoded.ambNumber, desc: decoded.desc })
 	} catch (error) {
 		// console.log(error)
 		res.json({ status: 'error', error: 'invalid token' })
 	}
-})
+});
 
 
 router.post('/signup', async (req, res) => {
@@ -54,7 +55,8 @@ router.post('/login', async (req, res) => {
     if(driver){
         const token = jwt.sign({ 
             name: driver.name,
-            ambNumber: driver.ambNumber
+            ambNumber: driver.ambNumber,
+            desc: req.body.desc
         }, 'secret');
 
         return res.json({ status: 'ok', driver: token });

@@ -19,13 +19,16 @@ const Driver = () => {
   const navigate = useNavigate();
 
   const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+  const [ambNumber, setAmbNumber] = useState('');
+
   const coord = useGeolocation().coord;
   const loaded = coord.loaded;
   const latitude = coord.lat;
   const longitude = coord.lng;
   console.log(latitude, longitude);
   
-  socket.emit('send-coords', JSON.stringify({id: ID, name: name, loaded: loaded, lat: latitude, lng: longitude}));
+  socket.emit('send-coords', JSON.stringify({id: ID, ambNumber: ambNumber, name: name, loaded: loaded, lat: latitude, lng: longitude, desc: desc}));
   const populateName = async () => {
 		const req = await fetch('http://localhost:8080/api/auth/name', {
 			headers: {
@@ -36,6 +39,8 @@ const Driver = () => {
 		const data = await req.json()
 		if (data.status === 'ok') {
 			setName(data.name)
+      setAmbNumber(data.ambNumber)
+      setDesc(data.desc)
 		} else {
 			alert(data.error)
 		}
