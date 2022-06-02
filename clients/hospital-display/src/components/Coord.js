@@ -1,4 +1,5 @@
 import React from 'react'
+import { hospitalLatitude, hospitalLongitude } from '../config/HospitalCoords';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -22,8 +23,8 @@ const Coord = ({ data }) => {
     return deg * (Math.PI/180);
   }
 
-  // coords hardcoded for now
-  let tlat = 17.761146480492354, tlng = 83.31641637015535;
+  
+  let tlat = hospitalLatitude, tlng = hospitalLongitude;
 
   return (
     <>
