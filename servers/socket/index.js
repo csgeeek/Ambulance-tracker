@@ -1,19 +1,33 @@
 const PORT = process.env.PORT || 5000;
 
+const dotenv = require('dotenv')
+dotenv.config();
+
 const express = require('express');
+const app = express();
+const http = require('http');
+const server = http.createServer(app);
 
-const socketIO = require('socket.io');
+const cors = require('cors');
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.DB_URI, () => console.log('connected to DB'));
+
+const io = require('socket.io')(server, { cors: { origin: "*" } });
 
 
-const server = express().listen(PORT, () => console.log(`socket on ${PORT}`));
+// MIDDLEWARES
+app.use(cors());
+app.use(express.json());
 
+const authRoutes = require('./routes/Auth.js');
+app.use('/api/auth', authRoutes);
 
-const io = socketIO(server, {
-  cors: {
-    origin: "*"
-  }
+app.get('/', (req, res) => {
+  res.send('Hello');
 });
 
+server.listen(PORT, () => console.log(`socket server listening on port ${PORT}`));
 let sid = '';
 
 io.on('connection', (socket) => {
