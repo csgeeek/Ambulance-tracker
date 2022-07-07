@@ -8,8 +8,8 @@ This webapp was built using `ReactJS`, `Node.js`, `Express`, `MongoDB`, `Socket.
 
 To install the webapp, run the following commands:-
 
-    - git clone https://github.com/Yaswanth820/eAmbulance-notifier.git
-    - cd eAmbulance-notifier
+    - git clone https://github.com/Yaswanth820/Ambulance-tracker.git
+    - cd Ambulance-tracker
     - cd server
     - npm install
     - npm start
