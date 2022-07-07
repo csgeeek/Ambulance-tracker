@@ -8,8 +8,5 @@ clients/hospital-display/node_modules
 
 
 #server
-servers/http/node_modules
-servers/http/.env
-servers/socket/node_modules
-
-.env
+server/node_modules
+server/.env
