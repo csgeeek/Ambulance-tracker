@@ -8,7 +8,7 @@ const LoginForm = () => {
 	async function loginUser(event) {
 		event.preventDefault();
 
-		const response = await fetch('http://localhost:8080/api/auth/login', {
+		const response = await fetch('http://localhost:5000/api/auth/login', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -49,17 +49,17 @@ const LoginForm = () => {
 							<label for="username" class="block text-sm font-medium text-gray-700">Username</label>
 							<div class="mt-1">
 								<input
-								 id="username" name="username" type="text" autocomplete="username" required class="" value={name} onChange={(e) => setName(e.target.value)}
-								 />
+									id="username" name="username" type="text" autocomplete="username" required class="" value={name} onChange={(e) => setName(e.target.value)}
+								/>
 							</div>
 						</div>
 
 						<div>
 							<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
 							<div class="mt-1">
-								<input 
-								id="password" name="password" type="password" autocomplete="current-password" required class=""
-								value={password} onChange={(e) => setPassword(e.target.value)}
+								<input
+									id="password" name="password" type="password" autocomplete="current-password" required class=""
+									value={password} onChange={(e) => setPassword(e.target.value)}
 								/>
 							</div>
 						</div>
@@ -68,8 +68,8 @@ const LoginForm = () => {
 							<label for="desc" class="block text-sm font-medium text-gray-700">Description</label>
 							<div class="mt-1">
 								<input
-								 id="desc" name="desc" type="text" required class="" value={desc} onChange={(e) => setDesc(e.target.value)}
-								 />
+									id="desc" name="desc" type="text" required class="" value={desc} onChange={(e) => setDesc(e.target.value)}
+								/>
 							</div>
 						</div>
 

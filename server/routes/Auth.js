@@ -5,29 +5,29 @@ const router = express.Router();
 const jwt = require('jsonwebtoken');
 
 router.get('/', async (req, res) => {
-    try{
+    try {
         const drivers = await Driver.find();
         res.send(drivers);
     }
-    catch(e){
+    catch (e) {
         res.send(e);
     }
 });
 
 router.get('/name', async (req, res) => {
-	const token = req.headers['x-access-token']
+    const token = req.headers['x-access-token']
 
-	try {
-		const decoded = jwt.verify(token, 'secret')
-		const name = decoded.name
+    try {
+        const decoded = jwt.verify(token, 'secret')
+        const name = decoded.name
 
-		const driver = await Driver.findOne({ name: name })
+        const driver = await Driver.findOne({ name: name })
 
-		return res.json({ status: 'ok', name: driver.name, ambNumber: decoded.ambNumber, desc: decoded.desc })
-	} catch (error) {
-		// console.log(error)
-		res.json({ status: 'error', error: 'invalid token' })
-	}
+        return res.json({ status: 'ok', name: driver.name, ambNumber: decoded.ambNumber, desc: decoded.desc })
+    } catch (error) {
+        // console.log(error)
+        res.json({ status: 'error', error: 'invalid token' })
+    }
 });
 
 
@@ -37,13 +37,13 @@ router.post('/signup', async (req, res) => {
         password: req.body.password,
         ambNumber: req.body.ambNumber
     };
-    try{
+    try {
         // await driverData.save();
         await Driver.create(driverData);
-        res.send({status: 'ok'});
+        res.send({ status: 'ok' });
     }
-    catch(e){
-        res.send({status: 'error', error: e});
+    catch (e) {
+        res.send({ status: 'error', error: e });
     }
 });
 
@@ -52,15 +52,15 @@ router.post('/login', async (req, res) => {
 
     const driver = await Driver.findOne({ name: req.body.name, password: req.body.password });
 
-    if(driver){
-        const token = jwt.sign({ 
+    if (driver) {
+        const token = jwt.sign({
             name: driver.name,
             ambNumber: driver.ambNumber,
             desc: req.body.desc
-        }, 'secret');
+        }, 'secret', { expiresIn: '24h' });
 
         return res.json({ status: 'ok', driver: token });
-    } else{
+    } else {
         return res.json({ status: 'err', driver: false });
     }
 });

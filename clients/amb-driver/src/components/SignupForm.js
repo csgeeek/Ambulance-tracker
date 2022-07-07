@@ -10,7 +10,7 @@ const SignupForm = () => {
 
 	async function registerUser(event) {
 		event.preventDefault();
-		const response = await fetch('http://localhost:8080/api/auth/signup', {
+		const response = await fetch('http://localhost:5000/api/auth/signup', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const SignupForm = () => {
 
 		<div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-6 lg:px-8">
 			<div class="sm:mx-auto sm:w-full sm:max-w-md">
-			<img class="mx-auto h-12 w-auto" src="../icons/ambulance (2).png" alt="ambulance" />
+				<img class="mx-auto h-12 w-auto" src="../icons/ambulance (2).png" alt="ambulance" />
 				<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
 				<p class="mt-2 text-center text-sm text-gray-600 max-w">
 					Already registered?
@@ -49,8 +49,8 @@ const SignupForm = () => {
 							<label for="ambnum" class="block text-sm font-medium text-gray-700">Ambulance Number</label>
 							<div class="mt-1">
 								<input id="ambnum" name="ambnum" type="text" autocomplete="ambnum" required class=""
-								value={ambNumber}
-								onChange={(e) => setAmbNumber(e.target.value)} />
+									value={ambNumber}
+									onChange={(e) => setAmbNumber(e.target.value)} />
 							</div>
 						</div>
 
@@ -58,7 +58,7 @@ const SignupForm = () => {
 							<label for="username" class="block text-sm font-medium text-gray-700">Username</label>
 							<div class="mt-1">
 								<input
-								id="username" name="username" type="text" autocomplete="username" required class="" value={name} onChange={(e) => setName(e.target.value)}
+									id="username" name="username" type="text" autocomplete="username" required class="" value={name} onChange={(e) => setName(e.target.value)}
 								/>
 							</div>
 						</div>
@@ -70,16 +70,16 @@ const SignupForm = () => {
 							</label>
 							<div class="mt-1">
 								<input
-								id="password" name="password" type="password" 
-								autocomplete="current-password" required class=""
-								value={password} onChange={(e) => setPassword(e.target.value)} />
+									id="password" name="password" type="password"
+									autocomplete="current-password" required class=""
+									value={password} onChange={(e) => setPassword(e.target.value)} />
 							</div>
 						</div>
 
 						<div class="flex items-center">
 							<input id="terms-and-privacy" name="terms-and-privacy" type="checkbox" class="" />
 							<label for="terms-and-privacy" class="ml-2 block text-sm text-gray-900"
-								>I agree to the
+							>I agree to the
 								<Link to={'/a/terms'} class="text-indigo-600 hover:text-indigo-500">Terms </Link>
 								and
 								<Link to={'/a/policy'} class="text-indigo-600 hover:text-indigo-500"> Privacy Policy</Link>.
