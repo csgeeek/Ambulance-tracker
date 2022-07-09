@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
     try {
@@ -32,9 +33,10 @@ router.get('/name', async (req, res) => {
 
 
 router.post('/signup', async (req, res) => {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const driverData = {
         name: req.body.name,
-        password: req.body.password,
+        password: hashedPassword,
         ambNumber: req.body.ambNumber
     };
     try {
@@ -50,9 +52,9 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
 
-    const driver = await Driver.findOne({ name: req.body.name, password: req.body.password });
-
-    if (driver) {
+    const driver = await Driver.findOne({ name: req.body.name });
+    const isMatch = await bcrypt.compare(req.body.password, driver.password);
+    if (isMatch) {
         const token = jwt.sign({
             name: driver.name,
             ambNumber: driver.ambNumber,
