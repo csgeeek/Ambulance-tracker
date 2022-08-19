@@ -15,5 +15,7 @@ To install the webapp, run the following commands:-
     - npm start
     - run clients on localhost
 
-==[Working](https://youtu.be/KkqGRHMl9Sk)==
+## Working
+Check out the working of my project [here](https://youtu.be/KkqGRHMl9Sk).
+
 ❤❤
