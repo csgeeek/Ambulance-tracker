@@ -33,7 +33,7 @@ const Coord = ({ data }) => {
         <h4 className='font-semibold'>Name : <span className='font-normal'> { data.name } </span></h4>
         <h4 className='font-semibold'>Description : <span className='font-normal'> { data.desc } </span></h4>
         {
-          data.loaded?<h4 className='font-semibold'>Distance : <span className='font-normal'>{ getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) } km</span> </h4>: <p>Location not loaded</p>
+          data.loaded ? <h4 className='font-semibold'>Distance : <span className='font-normal'>{Math.round(getDistanceFromLatLonInKm(tlat, tlng, data.lat, data.lng) * 100) / 100} km</span> </h4> : <p>Location not loaded</p>
         }
       </div>
     </>
