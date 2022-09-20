@@ -53,6 +53,9 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
 
     const driver = await Driver.findOne({ name: req.body.name });
+    if (driver == null) {
+        return res.status(400).json({ status: 'err', driver: false, error: 'Cannot find driver' });
+    }
     const isMatch = await bcrypt.compare(req.body.password, driver.password);
     if (isMatch) {
         const token = jwt.sign({
@@ -63,7 +66,7 @@ router.post('/login', async (req, res) => {
 
         return res.json({ status: 'ok', driver: token });
     } else {
-        return res.json({ status: 'err', driver: false });
+        return res.status(404).json({ status: 'err', driver: false });
     }
 });
 
