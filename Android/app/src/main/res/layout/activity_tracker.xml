@@ -34,4 +34,25 @@
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/textViewAmbNumber"
         app:layout_constraintTop_toBottomOf="@+id/textViewAmbNumber" />
+
+    <Button
+        android:id="@+id/buttonStartTracking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="83dp"
+        android:text="@string/start_tracking"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDesc" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="71dp"
+        android:text="CheckBox"
+        app:layout_constraintStart_toStartOf="@+id/buttonStartTracking"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStartTracking" />
 </androidx.constraintlayout.widget.ConstraintLayout>

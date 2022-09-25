@@ -1,6 +1,8 @@
 package com.ambulansetracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -19,10 +22,20 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.INTERNET;
+import static android.Manifest.permission.FOREGROUND_SERVICE;
+
+
 public class MainActivity extends AppCompatActivity {
 
     // finals
     final static public String DRIVER_KEY = "driver_key";
+    ArrayList<String> permissions;
+    ArrayList<String> permissionsToRequest;
+    ArrayList<String> permissionsRejected;
+    private final static int ALL_PERMISSIONS_RESULT = 101;
 
     SharedPreferences sharedPreferences;
     private final String URL = "http://192.168.0.129:5000";
@@ -34,17 +47,28 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // check for permissions
+        permissions = new ArrayList<>();
+        permissionsRejected = new ArrayList<>();
+        permissions.add(ACCESS_FINE_LOCATION);
+        permissions.add(ACCESS_COARSE_LOCATION);
+        permissions.add(INTERNET);
+        permissions.add(FOREGROUND_SERVICE);
+        permissionsToRequest = findUnAskedPermissions(permissions);
+        if(permissionsToRequest.size()>0)
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    permissionsToRequest.toArray(new String[permissionsToRequest.size()]),
+                    ALL_PERMISSIONS_RESULT);
         // init Retrofit
         retrofit = new Retrofit.Builder().baseUrl(URL).addConverterFactory(GsonConverterFactory.create()).build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
-        validateToken();
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
         initComponents();
     }
 
     private void validateToken() {
 
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         String token = sharedPreferences.getString("x-access-token", null);
         if (token==null)
             return;
@@ -59,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, TrackerActivity.class);
                     intent.putExtra(MainActivity.DRIVER_KEY, driver);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(MainActivity.this, "Valid token", Toast.LENGTH_LONG);
                 }
                 // invalid or expired token
@@ -99,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     sharedPreferences.edit().putString("x-access-token", response.body().driver).apply();
                     Toast.makeText(MainActivity.this, "Logged in",
                             Toast.LENGTH_LONG).show();
+                    validateToken();
                 }
                 // wrong credentials
                 if(response.code()==404) {
@@ -113,5 +139,39 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
             }
         });
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+
+            case ALL_PERMISSIONS_RESULT:
+                for (String perms : permissionsToRequest) {
+                    if (!hasPermission(perms)) {
+                        permissionsRejected.add(perms);
+                    }
+                }
+
+                if (permissionsRejected.size() > 0) {
+                    // TODO app didn't get all permissions
+                    Toast.makeText(this, "I don't have permissions", Toast.LENGTH_LONG);
+                }
+
+                break;
+        }
+
+    }
+    private ArrayList<String> findUnAskedPermissions(ArrayList<String> wanted) {
+        ArrayList<String> result = new ArrayList<>();
+        for (String permission : wanted) {
+            if(!hasPermission(permission))
+                result.add(permission);
+        }
+        return result;
+    }
+
+    private boolean hasPermission(String permission) {
+        int a = ActivityCompat.checkSelfPermission(this, permission);
+        return a != -1;
     }
 }

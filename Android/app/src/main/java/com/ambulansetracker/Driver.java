@@ -3,9 +3,9 @@ package com.ambulansetracker;
 import java.io.Serializable;
 
 public class Driver implements Serializable {
-    String name;
-    String ambNumber;
-    String desc;
+    private String name;
+    private String ambNumber;
+    private String desc;
 
     public String getName() {
         return name;
