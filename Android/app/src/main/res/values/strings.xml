@@ -4,4 +4,5 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="start_tracking">Start Tracking</string>
 </resources>
