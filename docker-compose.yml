@@ -6,8 +6,8 @@ services:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_USERNAME: ${USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
 
   mongo-express:
     image: mongo-express
@@ -26,7 +26,7 @@ services:
       - /app/node_modules
       - ./server:/app
     environment:
-      - DB_URI="Database url"
+      - DB_URI=${DB_URI}
       - PORT=5000
     ports:
       - 5000:5000
