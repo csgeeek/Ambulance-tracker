@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${PASSWORD}
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+
+  server:
+    build : 
+      dockerfile: Dockerfile
+      context: ./server
+    depends_on:
+      - mongo
+      - mongo-express
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - DB_URI=${DB_URI}
+    ports:
+      - 5000:5000
+  
+  admin:
+    build: 
+      dockerfile: Dockerfile
+      context: ./Web/clients/admin
+    depends_on:
+      - server
+    volumes:
+      - /app/node_modules
+      - ./Web/clients/admin:/app
+    ports:
+      - 3002:3000
+  
+  amb-driver:
+    build:
+      dockerfile: Dockerfile
+      context : ./Web/clients/amb-driver
+    depends_on:
+      - server
+    volumes:
+      - /app/node_modules
+      - ./Web/clients/amb-driver:/app
+    ports:
+      - 3000:3000
+  
+  hospital-display:
+    build:
+      dockerfile: Dockerfile
+      context : ./Web/clients/hospital-display
+    depends_on:
+      - server
+    volumes:
+      - /app/node_modules
+      - ./Web/clients/hospital-display:/app
+    ports:
+      - 3001:3000
+
+
+# PORTS (inside the docker network & host network)
+# ------------------------------------------------
+# SERVER is listened on port 5000
+# ADMIN is listened on port 3002
+# HOSPITAL-DISPLAY is listened on port 3001
+# AMB-DRIVER is listened on port 3000
+# * You may need to change the proxy settings in order to get the application working on the internet
