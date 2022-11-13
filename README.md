@@ -4,7 +4,7 @@ This web app assists hospitals by bridging the communication gap between Ambulan
 
 This webapp notifies hospital when an ambulance is within 3km range of a hospital. This will be very useful at times of emergency cases which assists in timely treatement of patients. This works by tracking ambulance location(coordinates) in real-time. The location stats will also be updated in realtime on hospital's display board.
 
-This webapp was built using `ReactJS`, `Node.js`, `Express`, `MongoDB`, `Socket.io`, `Geo-location API`.
+This webapp was built using `ReactJS`, `Node.js`, `Express`, `MongoDB`, `Socket.io`, `Geo-location API`, `TailwindCSS`.
 
 To install the webapp, run the following commands:-
 
