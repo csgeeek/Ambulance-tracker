@@ -8,7 +8,7 @@ const socket = io('http://localhost:5000');
 function App() {
 
   const [coords, setCoords] = useState([]);
-
+  document.title="Ambulance Tracker"
   socket.on('reply', (datum) => {
     const parsedData = JSON.parse(datum);
     setCoords(prev => {
