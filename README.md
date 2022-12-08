@@ -112,10 +112,6 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 ## Contributors ✨
 
 Thanks goes to these wonderful people :
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tr>
 <td>
@@ -136,7 +132,7 @@ Thanks goes to these wonderful people :
 </tr>
   <tr>
 <td>
-[![](https://github.com/theritikchoure.png?size=50)](https://github.com/theritikchoure)
+[!(https://github.com/theritikchoure.png?size=50)](https://github.com/theritikchoure)
 </td>
 <td>
 [![](https://github.com/HridoyHazard.png?size=50)](https://github.com/HridoyHazard)
@@ -148,10 +144,5 @@ Thanks goes to these wonderful people :
 [![](https://github.com/jatin00000.png?size=50)](https://github.com/jatin00000)
 </td>
 </tr>
-
- 
 </table>
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
