@@ -111,10 +111,10 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 ❤❤
 ## Contributors ✨
 
-Thanks goes to these wonderful people :
+Thanks goes to these wonderful people : <br/>
 <a href="https://github.com/Yaswanth820/Ambulance-tracker/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=Yaswanth820/Ambulance-tracker" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+<!-- Made with [contrib.rocks](https://contrib.rocks). -->
 
