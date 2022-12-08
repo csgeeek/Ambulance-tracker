@@ -112,56 +112,9 @@ Wait for your submission to be accepted and your PR to be merged by a maintainer
 ## Contributors ✨
 
 Thanks goes to these wonderful people :
-<table>
-  <tr>
-<td>
-    <a href="https://github.com/Yaswanth820">
-  <img src="https://github.com/Yaswanth820.png?size=50">
+<a href="https://github.com/Yaswanth820/Ambulance-tracker/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Yaswanth820/Ambulance-tracker" />
 </a>
 
-</td>
-<td>
-        <a href="https://github.com/Godfryderycerz">
-  <img src="[https://github.com/Godfryderycerz.png?size=50](https://avatars.githubusercontent.com/u/81488912?s=64&v=4)">
-</a>
-</td>
-<td>
-        <a href="https://github.com/Sakshi-75">
-  <img src="https://github.com/Sakshi-75.png?size=50">
-</a>
-</td>
-<td>
-            <a href="https://github.com/Arun89-crypto">
-  <img src="https://github.com/Arun89-crypto.png?size=50">
-</a>
-</td>
-<td>
-                <a href="https://github.com/UserJHansen">
-  <img src="[https://github.com/UserJHansen.png?size=50](https://avatars.githubusercontent.com/u/47265397?s=64&v=4)">
-</a>
-</td>
-</tr>
-  <tr>
-<td>
-     <a href="https://github.com/theritikchoure">
-  <img src="https://github.com/theritikchoure.png?size=50">
-</a>
-</td>
-<td>
-         <a href="https://github.com/HridoyHazard">
-  <img src="https://github.com/HridoyHazard.png?size=50">
-</a>
-</td>
-<td>
-             <a href="https://github.com/AshishSharma1203">
-  <img src="https://github.com/AshishSharma1203.png?size=50">
-</a>
-</td>
-<td>
-                 <a href="https://github.com/jatin00000">
-  <img src="[https://github.com/jatin00000.png?size=50](https://avatars.githubusercontent.com/u/94428262?s=64&v=4)">
-</a>
-</td>
-</tr>
-</table>
+Made with [contrib.rocks](https://contrib.rocks).
 
