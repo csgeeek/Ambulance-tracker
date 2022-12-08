@@ -121,30 +121,46 @@ Thanks goes to these wonderful people :
 
 </td>
 <td>
-[![](https://github.com/Godfryderycerz.png?size=50)](https://github.com/Godfryderycerz)
+        <a href="https://github.com/Godfryderycerz">
+  <img src="https://github.com/Godfryderycerz.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/Sakshi-75.png?size=50)](https://github.com/Sakshi-75)
+        <a href="https://github.com/Sakshi-75">
+  <img src="https://github.com/Sakshi-75.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/Arun89-crypto.png?size=50)](https://github.com/Arun89-crypto)
+            <a href="https://github.com/Arun89-crypto">
+  <img src="https://github.com/Arun89-crypto.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/UserJHansen.png?size=50)](https://github.com/UserJHansen)
+                <a href="https://github.com/UserJHansen">
+  <img src="https://github.com/UserJHansen.png?size=50">
+</a>
 </td>
 </tr>
   <tr>
 <td>
-[!(https://github.com/theritikchoure.png?size=50)](https://github.com/theritikchoure)
+     <a href="https://github.com/theritikchoure">
+  <img src="https://github.com/theritikchoure.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/HridoyHazard.png?size=50)](https://github.com/HridoyHazard)
+         <a href="https://github.com/HridoyHazard">
+  <img src="https://github.com/HridoyHazard.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/AshishSharma1203.png?size=50)](https://github.com/AshishSharma1203)
+             <a href="https://github.com/AshishSharma1203">
+  <img src="https://github.com/AshishSharma1203.png?size=50">
+</a>
 </td>
 <td>
-[![](https://github.com/jatin00000.png?size=50)](https://github.com/jatin00000)
+                 <a href="https://github.com/jatin00000">
+  <img src="https://github.com/jatin00000.png?size=50">
+</a>
 </td>
 </tr>
 </table>
