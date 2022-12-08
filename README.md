@@ -122,7 +122,7 @@ Thanks goes to these wonderful people :
 </td>
 <td>
         <a href="https://github.com/Godfryderycerz">
-  <img src="https://github.com/Godfryderycerz.png?size=50">
+  <img src="[https://github.com/Godfryderycerz.png?size=50](https://avatars.githubusercontent.com/u/81488912?s=64&v=4)">
 </a>
 </td>
 <td>
@@ -137,7 +137,7 @@ Thanks goes to these wonderful people :
 </td>
 <td>
                 <a href="https://github.com/UserJHansen">
-  <img src="https://github.com/UserJHansen.png?size=50">
+  <img src="[https://github.com/UserJHansen.png?size=50](https://avatars.githubusercontent.com/u/47265397?s=64&v=4)">
 </a>
 </td>
 </tr>
@@ -159,7 +159,7 @@ Thanks goes to these wonderful people :
 </td>
 <td>
                  <a href="https://github.com/jatin00000">
-  <img src="https://github.com/jatin00000.png?size=50">
+  <img src="[https://github.com/jatin00000.png?size=50](https://avatars.githubusercontent.com/u/94428262?s=64&v=4)">
 </a>
 </td>
 </tr>
