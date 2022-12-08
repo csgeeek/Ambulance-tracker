@@ -115,7 +115,10 @@ Thanks goes to these wonderful people :
 <table>
   <tr>
 <td>
-[![This](https://github.com/Yaswanth820.png?size=50)](https://github.com/Yaswanth820)
+    <a href="https://github.com/Yaswanth820">
+  <img src="https://github.com/Yaswanth820.png?size=50">
+</a>
+
 </td>
 <td>
 [![](https://github.com/Godfryderycerz.png?size=50)](https://github.com/Godfryderycerz)
