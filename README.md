@@ -116,7 +116,7 @@ Thanks goes to these wonderful people :
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<!--<table>
+<table>
   <tr>
 <td>
 [![](https://github.com/Yaswanth820.png?size=50)](https://github.com/Yaswanth820)
@@ -150,7 +150,7 @@ Thanks goes to these wonderful people :
 </tr>
 
  
-</table>-->
+</table>
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
