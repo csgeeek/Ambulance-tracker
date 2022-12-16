@@ -9,12 +9,15 @@ This webapp was built using `ReactJS`, `Node.js`, `Express`, `MongoDB`, `Socket.
 To install the webapp, run the following commands:-
 
     - git clone https://github.com/Yaswanth820/Ambulance-tracker.git
-    - cd Ambulance-tracker
-    - cd server
-    - npm install
-    - npm start
-    - run clients on localhost
+    - npm install (in server, clients folders)
 
+To initialize the project follow the below steps:- 
+
+    - Download and install MongoDB compass 
+    - Create a database with <DB_NAME> in the MongoDB compass application
+    - Create a .env file in the server folder with the following details DB_URI=https://localhost:27017/<DB_NAME>
+
+Run the project => `npm start`
 
 ## Links
 Check out the working of my project [here](https://youtu.be/KkqGRHMl9Sk).
