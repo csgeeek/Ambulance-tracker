@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure()
 const LoginForm = () => {
 	const [name, setName] = useState('')
 	const [password, setPassword] = useState('')
@@ -24,7 +27,7 @@ const LoginForm = () => {
 		// console.log(data);
 		if (data.driver) {
 			localStorage.setItem('token', data.driver)
-			alert('Login successful')
+			toast.success('Login successful')
 			window.location.href = '/driver';
 		} else {
 			alert(`Please check your ${name} and ${password}`)
