@@ -33,6 +33,7 @@ router.get('/name', async (req, res) => {
 
 
 router.post('/signup', async (req, res) => {
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const driverData = {
         name: req.body.name,
@@ -40,7 +41,21 @@ router.post('/signup', async (req, res) => {
         ambNumber: req.body.ambNumber
     };
     try {
-        // await driverData.save();
+        //checking username or ambulance exists in database already and sending response
+        const usernameexists= await Driver.findOne({ name: driverData.name });
+        const ambulanceexists= await Driver.findOne({ ambNumber:driverData.ambNumber});
+    
+        if(usernameexists)
+        {
+            res.send({check: '1'});
+            return;
+        }
+        if(ambulanceexists)
+        {
+            res.send({check: '2'});
+            return;
+        }
+        //await driverData.save();
         await Driver.create(driverData);
         res.send({ status: 'ok' });
     }

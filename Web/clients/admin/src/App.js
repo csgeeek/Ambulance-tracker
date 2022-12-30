@@ -9,6 +9,7 @@ const App = () => {
 
   async function registerUser(event) {
     event.preventDefault();
+
     const response = await fetch('http://localhost:5000/api/auth/signup', {
       method: 'POST',
       headers: {
@@ -23,7 +24,15 @@ const App = () => {
 
     const data = await response.json();
     console.log(data);
-    if (data.status === 'ok') {
+    if(data.check === '1')
+    {
+      alert('username already taken');
+    }
+    else if(data.check === '2')
+    {
+      alert('ambulance Number already exists');
+    }
+    else if (data.status === 'ok') {
       alert('Driver registered successfully');
     }
   }
@@ -40,6 +49,7 @@ const App = () => {
 
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div class="bg-white py-8 px-6 shadow rounded-lg sm:px-10">
+
             <form class="mb-0 space-y-6" onSubmit={registerUser}>
 
               <div>
@@ -47,7 +57,19 @@ const App = () => {
                 <div class="mt-1">
                   <input id="ambnum" name="ambnum" type="text" autocomplete="ambnum" required class=""
                     value={ambNumber}
-                    onChange={(e) => setAmbNumber(e.target.value)} />
+                    onChange={(e) =>{
+                      const regex = /^[0-9a-zA-Z(\ )]+$/;
+                      if(e.target.value.match(regex)|| e.target.value === "")
+                      {
+                        setAmbNumber(e.target.value.toUpperCase());
+                      }
+                      else
+                      {
+                        alert("only alphanumeric and space are allowed");
+                      }
+                     }
+                    }
+                  />
                 </div>
               </div>
 
@@ -55,7 +77,20 @@ const App = () => {
                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
                 <div class="mt-1">
                   <input
-                    id="username" name="username" type="text" autocomplete="username" required class="" value={name} onChange={(e) => setName(e.target.value)}
+                    id="username" name="username" type="text" autocomplete="username" required class="" 
+                    value={name}
+                    onChange={(e) =>{
+                      const regex = /^[0-9a-zA-Z(\)]+$/;
+                      if(e.target.value.match(regex)|| e.target.value === "")
+                      {
+                        setName(e.target.value);
+                      }
+                      else
+                      {
+                        alert("only alphanumeric characters are allowed");
+                      }
+                     }
+                    }
                   />
                 </div>
               </div>
