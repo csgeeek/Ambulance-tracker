@@ -8,7 +8,7 @@ This webapp was built using `ReactJS`, `Node.js`, `Express`, `MongoDB`, `Socket.
 
 To install the webapp, run the following commands:-
 
-    - git clone https://github.com/Yaswanth820/Ambulance-tracker.git
+    - https://github.com/csgeeek/Ambulance-tracker.git
     - npm install (in server, clients folders)
 
 To initialize the project follow the below steps:- 
