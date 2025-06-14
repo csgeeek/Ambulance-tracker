@@ -24,6 +24,9 @@ Check out the working of my project [here](https://youtu.be/KkqGRHMl9Sk).
 
 Check out the deployed web app [here](https://react-amb-driver.herokuapp.com/ ).
 
+## UML diagram
+![image](https://github.com/user-attachments/assets/84042fe9-13cd-4857-b08c-0b5195a87f79)
+
 ## Upcoming Features
 Integrate with UHS.
 
